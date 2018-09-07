@@ -7,10 +7,39 @@
 <body>
 
   <script>
+    let age =100; 
+    let age2 = age; 
+    console.log(age, age2); 
+    age2=200; 
+    console.log(age, age2); 
+
     // start with strings, numbers and booleans
 
     // Let's say we have an array
     const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+    const team = players; 
+    // console.log(players, team); 
+    
+    function loopThroughPlayers(){
+        for( var i =0; i < players.length; i++ ){
+          console.log("looping through each player", players[i]);
+        }
+    }
+
+    loopThroughPlayers(); 
+ 
+    const team2 = players.slice(); 
+    console.log("team2",team2); 
+    console.log("players slice(1)", players.slice(0,1)) ;
+
+    const team3 = [...players]; 
+    console.log("team3",team3)
+
+
+    const team5= Array.from(players); 
+    console.log(team5); 
+    team5[3] = "Jerry"; 
+    console.log("team5", team5); 
 
     // and we want to make a copy of it.
 
@@ -42,6 +71,14 @@
       age: 80
     };
 
+    const cap2 =Object.assign({}, person, {number:99})
+
+    console.log("person",person); 
+    console.log("cap2", cap2); 
+
+    const cap3= {...person};
+    console.log("cap3", cap3)
+
     // and think we make a copy:
 
     // how do we take a copy instead?
@@ -49,6 +86,14 @@
     // We will hopefully soon see the object ...spread
 
     // Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+  const patricia = {
+    nickname : "Tricia",
+    age : 30,
+    gender: "female"
+  }
+
+  const Tricia2 = Object.assign({},patricia )
+  console.log("tricia2", Tricia2); 
 
   </script>
 
